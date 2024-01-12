@@ -1,32 +1,16 @@
 // import { ThemeProvider } from "@material-tailwind/react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProvider } from "@material-tailwind/react";
+import PageHeader from "../components/pageHeader";
+import PageFooter from "../components/pageFooter";
 import "../styles/global.css";
 
-// 인스턴스 생성
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: true,
-      retry: false,
-      staleTime: Infinity,
-      cacheTime: Infinity
-    }
-  }
-});
 const App = ({ Component, pageProps }) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    <ThemeProvider>
+      <PageHeader />
       <Component {...pageProps} />
-      {/* visitor analytics */}
-      <Analytics />
-      {/* speed insight */}
-      <SpeedInsights />
-    </QueryClientProvider>
+      <PageFooter />
+    </ThemeProvider>
   );
 };
 

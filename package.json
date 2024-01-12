@@ -7,20 +7,26 @@
     "start": "next start --port 3003"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "@material-tailwind/react": "^2.1.8",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
     "indicatorts": "^1.0.16",
+    "next": "latest",
     "next-sitemap": "^4.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-query": "^3.39.3",
     "react-quill": "^2.0.0",
     "vercel": "^33.0.1"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
   }
 }
