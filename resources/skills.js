@@ -10,11 +10,11 @@ export const FAMILIAR = [
     ]
   },
   {
-    label: "React",
+    label: "AWS",
     backgroundColor: "#f3f3f3",
     visualParams: [
       {
-        pct: "70%",
+        pct: "60%",
         color: "#649fc9"
       }
     ]
@@ -122,16 +122,6 @@ export const FAMILIAR = [
 ];
 
 export const TRIED = [
-  {
-    label: "AWS",
-    backgroundColor: "#f3f3f3",
-    visualParams: [
-      {
-        pct: "45%",
-        color: "#649fc9"
-      }
-    ]
-  },
   {
     label: "TypeScript",
     backgroundColor: "#f3f3f3",
