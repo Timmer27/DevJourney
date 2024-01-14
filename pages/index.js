@@ -1,27 +1,27 @@
 import { Button, Tooltip, Typography } from "@material-tailwind/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ProgressLine from "../components/progressLine";
 import { FAMILIAR, TRIED } from "../resources/skills";
 import { generalInfo, personalInfo } from "../resources/generalInfo";
 import { PROJECTS } from "../resources/projects";
 import ProjectCard from "../components/projectCard";
+import { refContext } from "./_app";
 
 const index = () => {
+  const myContext = useContext(refContext);
   const [mount, setMount] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const myRef = useRef(null);
   const fadeOut = "opacity-100";
   const fadeIn = "opacity-0 -translate-y-[30%] transition-all ease-in-out";
 
-  const executeScroll = () =>
-    myRef.current.scrollIntoView({ behavior: "smooth" });
 
   useEffect(() => {
     setMount(true);
   }, []);
   return (
     <>
-      <section className="">
+      <section className="" ref={myContext.aboutRef}>
         <div className="flex min-h-[35rem]">
           <div className="bg-[#f0e8e2] w-[42%]" />
           <div className="bg-white w-[58%]" />
@@ -62,7 +62,10 @@ const index = () => {
                 ABOUT
               </Typography>
               {/* <Typography variant="paragraph" className=""> */}
-                <div className="text-sm mb-5" dangerouslySetInnerHTML={{ __html: personalInfo.about }} />
+              <div
+                className="text-sm mb-5 text-justify"
+                dangerouslySetInnerHTML={{ __html: personalInfo.about }}
+              />
               {/* </Typography> */}
               <ui className="list-none">
                 {generalInfo.map((val, idx) => {
@@ -77,7 +80,7 @@ const index = () => {
           </div>
         </div>
       </section>
-      <section className="m-16" ref={myRef}>
+      <section className="m-16" ref={myContext.skillRef}>
         <Typography variant="h3" className="my-5 text-center">
           SKILLS
         </Typography>
@@ -120,7 +123,7 @@ const index = () => {
           })}
         </div>
       </section>
-      <section className="m-16">
+      <section className="m-16" ref={myContext.projectRef}>
         <Typography variant="h3" className="my-5 text-center">
           PROJECTS
         </Typography>

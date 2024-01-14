@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { refContext } from "../pages/_app";
 
 const PageHeader = () => {
+  const myContext = useContext(refContext);
+
+  const executeScroll = (ref) =>
+    ref.current.scrollIntoView({ behavior: "smooth" });
+
   const navHeader = [
     {
       label: "ABOUT",
@@ -27,7 +33,23 @@ const PageHeader = () => {
           {navHeader.map((val, idx) => {
             return (
               <a href="#">
-                <li>{val.label}</li>
+                <li
+                  onClick={() => {
+                    if (val.label === "ACHIEVEMENT") {
+                      alert("준비 중!");
+                    } else {
+                      const ref =
+                        val.label === "ABOUT"
+                          ? myContext.aboutRef
+                          : val.label === "SKILLS"
+                          ? myContext.skillRef
+                          : myContext.projectRef;
+                      executeScroll(ref);
+                    }
+                  }}
+                >
+                  {val.label}
+                </li>
               </a>
             );
           })}
