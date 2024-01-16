@@ -10,6 +10,16 @@ export const FAMILIAR = [
     ]
   },
   {
+    label: "Java Spring",
+    backgroundColor: "#f3f3f3",
+    visualParams: [
+      {
+        pct: "80%",
+        color: "#649fc9"
+      }
+    ]
+  },
+  {
     label: "AWS",
     backgroundColor: "#f3f3f3",
     visualParams: [
@@ -25,16 +35,6 @@ export const FAMILIAR = [
     visualParams: [
       {
         pct: "70%",
-        color: "#649fc9"
-      }
-    ]
-  },
-  {
-    label: "Java Spring",
-    backgroundColor: "#f3f3f3",
-    visualParams: [
-      {
-        pct: "50%",
         color: "#649fc9"
       }
     ]
